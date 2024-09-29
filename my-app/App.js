@@ -1,24 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import SearchBar from './components/SearchBar';
+import DoctorCard from './components/DoctorCard';
 
 export default function App() {
   return (
-    <>
-    <Header name = "Cat header"></Header>
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.parentContainer}>
+      <SearchBar />
+      <Text style={styles.label}>Let's find a doctor</Text>
+      <View style={styles.box}>
+        <DoctorCard name="Dr. John Smith" field="Dermatologist" rating=" 4.5" icon="user-md" />
+        <DoctorCard name="Dr. Anna Dinn" field="Psychologist" rating=" 5" icon="brain" />
+        <DoctorCard name="Dr. Angel Ray" field="Therapist" rating=" 4.5" icon="heartbeat" />
+        <DoctorCard name="Dr. Chris Bronte" field="Dentist" rating=" 4" icon="tooth" />
+      </View>
     </View>
-    </>
-    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
+let styles = StyleSheet.create({
+  parentContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 20,
+    width: '100%',
+  },
+  label: {
+    color: 'black',
+    marginVertical: 10,
+    fontSize: 18,
+    marginTop: 1,
+    padding: 8,
+  },
+  box: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    marginTop: 5,
   },
 });
